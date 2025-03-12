@@ -3,13 +3,15 @@
     margin: 0;
     font-family: 'Times New Roman', Times, serif;
 }
+
 .container {
     display: flex;
-    background:slategray;
+    background: black;
     padding: 10px;
 }
+
 .navbar {
-    background-color: slategray;
+    background-color: black;
     padding: 15px;
 }
 .navbar .container {
@@ -27,7 +29,7 @@
     position: relative;
 }
 .nav-links li a {
-    color: silver;
+    color: white;
     text-decoration: none;
     padding: 10px 15px;
 }
@@ -38,7 +40,7 @@
     left: 50%;
     bottom: 0;
     width: 0; height: 2px;
-    background: silver;
+    background: white;
     transition: width 0.5s ease, left 0.5s ease;
 }
 /* hover effect */
@@ -53,14 +55,45 @@
     font-weight: bold;
     text-decoration: none;
 }
+
+/* Hero section-landing page on a website */
+#hero {
+    background: url("assets/hero for gallery.jpg") no-repeat center center/cover;
+    background-attachment: fixed;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+
+.hero-content {
+    background: rgba(0, 0, 0, 0.5); /* the 'a' controls the opacity */
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.btn {
+    display: inline-block;
+    background: darkseagreen;
+    color: white;
+    border-radius: 10px; /* rounds the corners */
+    padding: 10px;
+    margin-top: 10px; /* increases space in between elements */
+    text-decoration: none; /* removes the underline */
+     /* hover effect */
+}
+
+/* Photo gallery section */
 .gallery {
     display: flex;
     flex-wrap: wrap;
     padding: 10px;
 }
 .gallery-item {
-    width: 100px;
-    height: 100px;
+    width: 650px;
+    height: auto;
     background: white;
     margin: 10px;
     display: flex;
@@ -75,34 +108,76 @@
     height:90%;  
 }
 
-/* hover effect on an image */
-.middle {
-    transition: 0.5s ease;
-    opacity: 0;
+/* hover text effect on an image */
+figure {
+    position: relative;
+}  
+figcaption {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%)
-  }
-  .gallery-item:hover .gallery-image {
-    opacity: 0.3
-  }
-  .gallery-item:hover .middle {
-    opacity: 1;
-  }
-  .text {
-    background-color: lightslategrey;
-    color: white;
-    font-size: 16px;
-    padding: 16px 32px;
-  } 
+    inset: 100px; /* set the distance of the overlay from the margins of the image */ 
+    display: none;
+} 
+figure:hover figcaption {
+    display: flex;
+}
+/* for the overlay */
+figure {
+    display: inline-block; /*enables elements to sit next to each other */
+}
+figcaption {
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(255, 255, 255, 0.5);
+}
+ 
+/* displaying the text on the side instead of on the overlay */
 
 /*styling the footer*/
 footer {
     text-align: center;
-    background: slategray;
+    background: black;
     color: silver;
     padding: 20px;
     margin-top: 20px;
+}
+.footer-container {
+    display: flex;
+    justify-content:space-around;
+    padding: 20px;
+}
+.footer-column h3 {
+    margin-bottom:10px;
+}
+
+.footer-column ul {
+    list-style: none; /* removing the bullets */
+    padding: 0;
+}
+
+.footer-column a {
+    text-decoration: none; /* removing the underline from text */
+    margin-bottom: 10px;
+    color: silver;
+}
+
+/* styling footer bottom with the copyright section */
+.footer-bottom {
+    margin-top: 10px;
+}
+
+/* styling the social links */
+.social-links {
+    justify-content: center;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.social-links a {
+    font-size: 24px;
+    margin-right: 10px;
+    transition: transform 0.3s ease-in-out color 0.3s ease-in-out;
+}
+.social-links a:hover {
+    color: white;
 }
