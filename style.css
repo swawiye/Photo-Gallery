@@ -108,21 +108,23 @@
     height:90%;  
 }
 
-/* hover text effect on an image */
+/* hover text effect on an image 
 figure {
     position: relative;
 }  
 figcaption {
     position: absolute;
-    inset: 100px; /* set the distance of the overlay from the margins of the image */ 
+    inset: 100px; -set the distance of the overlay from the margins of the image-
     display: none;
 } 
 figure:hover figcaption {
     display: flex;
 }
-/* for the overlay */
+*/
+
+/*for the overlay*/
 figure {
-    display: inline-block; /*enables elements to sit next to each other */
+    display: inline-block; /* enables elements to sit next to each other */
 }
 figcaption {
     padding: 20px;
@@ -130,8 +132,16 @@ figcaption {
     align-items: center;
     background-color: rgb(255, 255, 255, 0.5);
 }
+
  
 /* displaying the text on the side instead of on the overlay */
+figure {
+    position: relative;
+}  
+
+figure:hover figcaption {
+    display: flex;
+}
 
 /*styling the footer*/
 footer {
