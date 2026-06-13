@@ -74,73 +74,118 @@
     border-radius: 8px;
 }
 
-.btn {
+/* .btn {
     display: inline-block;
     background: darkseagreen;
     color: white;
-    border-radius: 10px; /* rounds the corners */
+    border-radius: 10px; - rounds the corners -
     padding: 10px;
-    margin-top: 10px; /* increases space in between elements */
-    text-decoration: none; /* removes the underline */
-     /* hover effect */
+    margin-top: 10px; - increases space in between elements -
+    text-decoration: none; - removes the underline -
+} */
+
+/* About section */
+.about {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 60px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-/* Photo gallery section */
+.about-column {
+    flex: 1;
+}
+
+.about-column h2 {
+    margin-bottom: 15px;
+    font-size: 28px;
+}
+
+.about-column p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.about-divider {
+    width: 1px;
+    background-color: #ccc;
+    flex-shrink: 0;
+}
+
+/* Responsive: stack columns on smaller screens */
+@media (max-width: 768px) {
+    .about {
+        flex-direction: column;
+    }
+
+    .about-divider {
+        width: 100%;
+        height: 1px;
+        margin: 10px 0;
+    }
+}
+
+/* Photo gallery section (Pinterest/masonry style) */
 .gallery {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 10px;
+    column-count: 3;
+    column-gap: 20px;
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
+
 .gallery-item {
-    width: 650px;
-    height: auto;
-    background: white;
-    margin: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: relative;
+    margin-bottom: 20px;
     border-radius: 10px;
+    overflow: hidden;
+    break-inside: avoid; /* prevents an item splitting across columns */
 }
+
 .gallery-image {
-    display: flex;
-    flex-wrap: wrap;
-    width: 90%;
-    height:90%;  
+    display: block;
+    width: 100%;
+    height: auto; /* keeps full image visible, no cropping */
+    border-radius: 10px;
+    transition: transform 0.4s ease;
 }
 
-/* hover text effect on an image 
-figure {
-    position: relative;
-}  
-figcaption {
+.gallery-item:hover .gallery-image {
+    transform: scale(1.05);
+}
+
+.gallery-item figcaption {
     position: absolute;
-    inset: 100px; -set the distance of the overlay from the margins of the image-
-    display: none;
-} 
-figure:hover figcaption {
-    display: flex;
-}
-*/
-
-/*for the overlay*/
-figure {
-    display: inline-block; /* enables elements to sit next to each other */
-}
-figcaption {
-    padding: 20px;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(255, 255, 255, 0.5);
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+    box-sizing: border-box;
+    background: linear-gradient(to top, rgba(0,0,0,0.75), transparent);
+    color: white;
+    font-weight: 600;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
- 
-/* displaying the text on the side instead of on the overlay */
-figure {
-    position: relative;
-}  
+.gallery-item:hover figcaption {
+    opacity: 1;
+}
 
-figure:hover figcaption {
-    display: flex;
+/* Responsive column counts */
+@media (max-width: 900px) {
+    .gallery {
+        column-count: 2;
+    }
+}
+
+@media (max-width: 500px) {
+    .gallery {
+        column-count: 1;
+    }
 }
 
 /*styling the footer*/
